@@ -35,16 +35,6 @@ You need to have a C++ compiler installed on your machine. You can use g++, whic
     ```
     <br>
 
-3. Compile the program:
-    ```bash
-    g++ main.cpp -o CricketTeamManager
-    ```
-    <br>
-
-4. Run the program:
-    ```bash
-    ./CricketTeamManager
-    ```
 
 <hr>
 
