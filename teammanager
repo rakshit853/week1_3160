@@ -1,0 +1,70 @@
+#include <iostream>
+#include <vector>
+#include <string>
+
+class Player {
+public:
+    std::string name;
+    int age;
+    std::string role;
+    int matches;
+    int runs;
+    int wickets;
+
+    Player(std::string name, int age, std::string role, int matches, int runs, int wickets)
+        : name(name), age(age), role(role), matches(matches), runs(runs), wickets(wickets) {}
+};
+
+class CricketTeamManager {
+private:
+    std::vector<Player> team;
+
+public:
+    void addPlayer(const Player& player) {
+        team.push_back(player);
+    }
+
+    void displayPlayers() {
+        for (const auto& player : team) {
+            std::cout << "Name: " << player.name << std::endl;
+            std::cout << "Age: " << player.age << std::endl;
+            std::cout << "Role: " << player.role << std::endl;
+            std::cout << "Matches: " << player.matches << std::endl;
+            std::cout << "Runs: " << player.runs << std::endl;
+            std::cout << "Wickets: " << player.wickets << std::endl;
+            std::cout << "--------------------------" << std::endl;
+        }
+    }
+
+    void displayPlayerByName(const std::string& name) {
+        for (const auto& player : team) {
+            if (player.name == name) {
+                std::cout << "Name: " << player.name << std::endl;
+                std::cout << "Age: " << player.age << std::endl;
+                std::cout << "Role: " << player.role << std::endl;
+                std::cout << "Matches: " << player.matches << std::endl;
+                std::cout << "Runs: " << player.runs << std::endl;
+                std::cout << "Wickets: " << player.wickets << std::endl;
+                std::cout << "--------------------------" << std::endl;
+                return;
+            }
+        }
+        std::cout << "Player not found!" << std::endl;
+    }
+};
+
+int main() {
+    CricketTeamManager manager;
+
+    manager.addPlayer(Player("Sachin Tendulkar", 47, "Batsman", 664, 34357, 201));
+    manager.addPlayer(Player("Virat Kohli", 33, "Batsman", 458, 23000, 8));
+    manager.addPlayer(Player("Jasprit Bumrah", 28, "Bowler", 151, 250, 320));
+
+    std::cout << "Displaying all players:" << std::endl;
+    manager.displayPlayers();
+
+    std::cout << "Displaying specific player by name:" << std::endl;
+    manager.displayPlayerByName("Virat Kohli");
+
+    return 0;
+}
